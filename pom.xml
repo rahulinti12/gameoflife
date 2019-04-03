@@ -43,7 +43,6 @@
                <configuration>
                     <skipTests>true</skipTests>
                </configuration>
-            </plugin>
                 <executions>
                     <execution>
                         <id>unit-tests</id>
