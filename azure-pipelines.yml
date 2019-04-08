@@ -20,5 +20,14 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package -Dmaven.test.skip=true'
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'drop' 
+
+- task: CopyFiles@2
+  inputs:
+    #sourceFolder: # Optional
+    contents: '**/*' 
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'war'
